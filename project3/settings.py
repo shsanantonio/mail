@@ -124,7 +124,13 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.0/howto/static-files/
-
+# static and media assets config
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'assets' / 'media/'
 STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles' / 'static'
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+]
+if not DEBUG:
+    STATICFILES_DIRS.append(MEDIA_ROOT)
